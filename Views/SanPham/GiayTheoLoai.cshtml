@@ -1,0 +1,37 @@
+﻿@model List<Nhom_10_QuanLyShopGiayTheThaoSneaker.Models.SanPham>
+@{
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<h2>Sản Phẩm Theo Loại : @ViewBag.TenLoai</h2>
+<div class="row">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="col-4">
+                <img src="@Url.Content("~/images/"+item.Anh)" width="70%" height="70%" alt="Image">
+
+
+                @if (item.TenSP.Length > 30)
+                {
+                    <p>
+                        <strong title="@item.TenSP">Tiêu đề: @item.TenSP.Substring(0, 30)...</strong><br />
+                        <a href="~/SanPham/XemChiTiet?msp=@item.MaSP">Xem chi tiết</a>
+
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        <strong title="@item.TenSP">Tiêu đề: @item.TenSP</strong><br />
+                        @Html.ActionLink(" Chi Tiết Sản Phẩm", "XemChiTiet", new { @msp = item.MaSP })
+                    </p>
+                    <div class="clear"></div>
+                }
+            </div>
+
+
+        }
+    }
+</div>
+
+

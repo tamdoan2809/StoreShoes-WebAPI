@@ -1,0 +1,153 @@
+﻿@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cửa hàng bán giày được thiết kế bởi nhóm 10</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Cửa hàng giày</title>
+    <!--Bootstrap 4-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="text-center">
+        <!--NAVIGATION-->
+        <!-- <div class="container-fluid"> -->
+
+        <div class="row" style="background-color:snow; height:100px;">
+            <div class="col-4 mt-2">
+                <a href="~/Home"><img src="~/images/logo.png" width="30%" class="rounded" /></a>
+            </div>
+            <div class="col-8 mt-4">
+                <form class="form-inline" action="~/SanPham/TimSanPham" method="GET">
+                    <div class="input-group">
+                        <input class="form-control mx-auto" type="search" placeholder="Tìm kiếm giày" aria-label="Search" name="txt_Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-3">
+
+            </div>
+        </div>
+
+        <div class="row" style="background-color:black; height:60px;">
+            <div class="col-12 mt-3 mx-auto">
+                <ul>
+                    <li style="float:left; position:relative; display:block; width:150px; color:white; ">
+                        <a href="~/SanPham/SanPhamAll" style="color:white;">TRANG CHỦ</a>
+                    </li>
+                    <li style="float:left; position:relative;  display:block; width:150px; color:white; ">
+                        <a href="~/User/DangKy" style="color:white;">ĐĂNG KÝ</a>
+                    </li>
+                    <li style="float:left; position:relative;  display:block; width:150px; color:white; ">
+                        <a href="~/User/DangNhap" style="color:white;">ĐĂNG NHẬP</a>
+                    </li>
+                    <li style="float:left; position:relative; display:block;width:150px;color:white;">
+                        <a href="~/GioHang/GioHang" style="color:white;">GIỎ HÀNG</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- </div> -->
+        <!--CONTAIN-->
+        <div class="row">
+            <div class="col col-md-2  card">
+                <!--Hiển thị loại sản phẩm-->
+                @Html.Action("LoaiPartial", "SanPham")
+
+            </div>
+            <div class="col col-md-8" style="background-color:lavender;">
+                <div class="col-md-push-9">
+                    <div id="openweathermap-widget-1"></div>
+                    <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
+                    <script>window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = []; window.myWidgetParam.push({ id: 1, cityid: '1581130', appid: 'b4411a46bf5867d67ca605eb2ae0d7fc', units: 'metric', containerid: 'openweathermap-widget-1', }); (function () { var script = document.createElement('script'); script.async = true; script.charset = "utf-8"; script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s); })();</script>
+                </div>
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+            <div class="col col-md-2 card">
+
+            </div>
+        </div>
+        <!--Footer-->
+        <footer class="ftco-footer ftco-section">
+            <div class="container">
+                <div class="row">
+                    <div class="mouse">
+                        <a href="#" class="mouse-icon">
+                            <div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">Sneaker THAT</h2>
+                            <p>CÔ ơi, tụi em làm sắp chếc rồi, cô chấm nương tay thôi a. T.T</p>
+                            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">Có câu hỏi?</h2>
+                            <div class="block-23 mb-3">
+                                <ul>
+                                    <li><span class="icon icon-map-marker"></span><span class="text">140 Lê Trọng Tấn, Quận Tân Phú, TP Hồ Chí Minh</span></li>
+                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">+84 3664 91109</span></a></li>
+                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">HoangTheAnh00@gmail.com</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

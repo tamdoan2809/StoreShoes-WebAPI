@@ -1,0 +1,93 @@
+﻿@model List<Nhom_10_QuanLyShopGiayTheThaoSneaker.Models.SanPham>
+@{
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<h2>Sản Phẩm</h2>
+<div class="row">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card product-card" style="height: 22rem;">
+                    <div class="product-image" style="background-image: url('@Url.Content("~/images/" + item.Anh)');"></div>
+                    <div class="card-body" onclick="window.location.href='@Url.Action("XemChiTiet", "SanPham", new { msp = item.MaSP })'">
+                        <h5 class="card-title">@item.TenSP</h5>
+                        <h3 class="card-subtitle mb-2 text-primary">@item.GiaBan vnd</h3>
+                        <div class="card-actions">
+                            <a href="~/SanPham/XemChiTiet?msp=@item.MaSP" class="btn btn-success">Xem Chi Tiết</a>
+                            <a href="@Url.Action("ThemGioHang","GioHang",new{@msp = item.MaSP, @strURL = Request.Url.ToString()})">
+                                <input type="submit" value="Thêm Vào Giỏ Hàng" class="btn btn-primary" /> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<style>
+    .product-card {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+    .product-image {
+        width: 100%;
+        height: 40%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .product-card .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 60%;
+        position: relative;
+    }
+
+    .card-title {
+        font-size: 0.9rem; /* Giảm kích thước chữ của tên sản phẩm */
+    }
+
+    .card-subtitle {
+        color: blue; /* Đổi màu giá tiền thành xanh */
+        position: absolute;
+        bottom: 40px; /* Đẩy giá tiền lên để tránh bị che bởi nút */
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+
+    .card-actions {
+        display: none;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+    }
+
+    .product-card:hover .card-actions {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-body:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+        .card-body:hover .card-title,
+        .card-body:hover .card-subtitle,
+        .card-body:hover .card-text {
+            color: black;
+        }
+</style>

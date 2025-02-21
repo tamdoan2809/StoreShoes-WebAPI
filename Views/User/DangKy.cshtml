@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<h2>Đăng Ký</h2>
+<div class="register-container">
+    @using (Html.BeginForm("DangKy", "User", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <label for="HoTenKH">Họ Tên</label>
+            @Html.TextBox("HoTenKH", "", new { @class = "form-control", placeholder = "Nhập họ tên" })
+            <span class="text-danger">@ViewBag.Loi1</span>
+        </div>
+        <div class="form-group">
+            <label for="TenDN">Tên Đăng Nhập</label>
+            @Html.TextBox("TenDN", "", new { @class = "form-control", placeholder = "Nhập tên đăng nhập" })
+            <span class="text-danger">@ViewBag.Loi2</span>
+        </div>
+        <div class="form-group">
+            <label for="MatKhau">Mật Khẩu</label>
+            @Html.Password("MatKhau", "", new { @class = "form-control", placeholder = "Nhập mật khẩu" })
+            <span class="text-danger">@ViewBag.Loi3</span>
+        </div>
+        <div class="form-group">
+            <label for="Rematkhau">Nhập Lại Mật Khẩu</label>
+            @Html.Password("Rematkhau", "", new { @class = "form-control", placeholder = "Nhập lại mật khẩu" })
+            <span class="text-danger">@ViewBag.Loi4</span>
+        </div>
+        <div class="form-group">
+            <label for="DienThoai">Số Điện Thoại</label>
+            @Html.TextBox("DienThoai", "", new { @class = "form-control", placeholder = "Nhập số điện thoại" })
+            <span class="text-danger">@ViewBag.Loi5</span>
+        </div>
+        <div class="form-group">
+            <label for="NgaySinh">Ngày Sinh</label>
+            @Html.TextBox("NgaySinh", "", new { @class = "form-control", type = "date" })
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            @Html.TextBox("Email", "", new { @class = "form-control", placeholder = "Nhập email" })
+            <span class="text-danger">@ViewBag.Loi6</span>
+        </div>
+        <div class="form-group">
+            <label for="DiaChi">Địa Chỉ</label>
+            @Html.TextBox("DiaChi", "", new { @class = "form-control", placeholder = "Nhập địa chỉ" })
+            <span class="text-danger">@ViewBag.Loi7</span>
+        </div>
+        <div class="action-buttons">
+            <button type="submit" class="btn btn-primary">Đăng Ký</button>
+        </div>
+    }
+</div>
+
+<style>
+    .register-container {
+        max-width: 500px;
+        margin: 20px auto 50px; /* Cập nhật margin để không chạm vào footer */
+        padding: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            flex: 0 0 30%; /* Chiếm 30% chiều rộng của hàng */
+            max-width: 30%;
+            text-align: right;
+            margin-right: 20px; /* Khoảng cách giữa nhãn và hộp văn bản */
+        }
+
+        .form-group .form-control {
+            flex: 1; /* Chiếm phần còn lại của hàng */
+            max-width: calc(70% - 20px); /* Chiếm phần còn lại của hàng, trừ đi khoảng cách giữa nhãn và hộp văn bản */
+        }
+
+    .btn {
+        margin-right: 10px;
+    }
+
+    .action-buttons {
+        display: flex;
+        justify-content: center; /* Canh giữa các nút theo chiều ngang */
+    }
+</style>

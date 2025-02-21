@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<h2>Đăng Nhập</h2>
+<div class="login-container">
+    @using (Html.BeginForm("DangNhap", "User", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        {
+            <div class="form-group row align-items-center">
+                <label for="TenDN" class="col-sm-4 col-form-label text-right">Tên Đăng Nhập</label>
+                <div class="col-sm-8">
+                    @Html.TextBox("TenDN", null, new { @class = "form-control", placeholder = "Nhập tên đăng nhập" })@ViewBag.Loi1
+                </div>
+            </div>
+            <div class="form-group row align-items-center">
+                <label for="MatKhau" class="col-sm-4 col-form-label text-right">Mật Khẩu</label>
+                <div class="col-sm-8">
+                    @Html.Password("MatKhau", null, new { @class = "form-control", placeholder = "Nhập mật khẩu" })@ViewBag.Loi2
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-primary">Đăng Nhập</button>
+                    <a href="@Url.Action("DangKy", "NguoiDung")" class="btn btn-secondary">Đăng Ký</a>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@if (ViewBag.TB != null)
+{
+    <script>
+        alert('@ViewBag.TB');
+        if ('@ViewBag.TB'.includes("admin"))
+        {
+            window.location.href = '@Url.Action("Index", "Home")';
+        }
+    </script>
+}
+
+<style>
+    .login-container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+        .form-group .col-form-label {
+            flex: 0 0 33.3333%; /* Width of the label column */
+            max-width: 33.3333%;
+            text-align: right;
+        }
+
+        .form-group .col-sm-8 {
+            flex: 0 0 66.6667%; /* Width of the input column */
+            max-width: 66.6667%;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .btn {
+        margin-right: 10px;
+    }
+
+    .text-danger {
+        color: red;
+    }
+</style>
+<h5 style="color:red; text-align:center;">@ViewBag.TB</h5>
